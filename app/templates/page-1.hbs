@@ -1,16 +1,33 @@
 <h1>General Guide</h1>
 
-3 things
+2 things
+<ul>
+  <li>
+    Javascipt is a very flexible language that allows us to do all kinds of wonderful things
+  </li>
+  <li>
+    The Rails community has well established, tried and true conventions.
+    <ul>
+      <li>classical inheritance</li>
+    </ul>
+  </li>
+</ul>
 
-Javascipt is a very flexible language that allows us to do all kinds of wonderful things
 
-The Rails community has well established, tried and true conventions.
-  classical inheritance
-
-How did the Ember core teem figure out how to implement these conventions with javasctipt
 
 We'll take a little detour through the source code and investigate it.  The tools we'll use is the Chrome debugger, which is incredibly powerful when trying to step through javascript code.
 
 
 Lets use the context of an ArrayController
-I personally love the way a model set on an ArrayController
+I personally love the way a model set on an ArrayController provides
+
+
+
+ArrayController <-- ArrayProxy <-- EmberObject
+                            \_____ MutableArray
+
+
+Class.ClassMixin.apply(Class);
+
+MixinPrototype.reopen
+applyMixin
